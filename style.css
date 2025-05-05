@@ -1,0 +1,175 @@
+:root {
+  --bg: #f3f3f3;
+  --text: #1c1c1c;
+  --card: #ffffff;
+  --accent: #4a0f52;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --date-color: #444;
+}
+
+body.dark-mode {
+  --bg: #111;
+  --text: #f9f9f9;
+  --card: #2a2a2a;
+  --accent: #00b894;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --date-color: #ccc;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#clock {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+input, button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input {
+  background: var(--card);
+  box-shadow: inset 1px 1px 4px var(--shadow);
+  color: var(--text);
+}
+
+input[type="datetime-local"] {
+  color: var(--date-color);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: var(--card);
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 5px var(--shadow);
+  animation: fade-in 0.5s ease;
+}
+
+li input[type="text"],
+li input[type="datetime-local"] {
+  flex: 1;
+  min-width: 150px;
+}
+
+li input:disabled {
+  border: none;
+  background: transparent;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: red;
+}
+
+.progress-container {
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  height: 20px;
+  background: var(--accent);
+  width: 0%;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  transition: width 0.4s ease;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff8f00;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-weight: bold;
+  z-index: 1000;
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  input, button {
+    width: 100%;
+  }
+}

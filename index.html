@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List Kekinian</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>To-Do List</h1>
+      <div class="right">
+        <span id="clock">00:00:00</span>
+        <button id="toggle-mode">Ganti Mode</button>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="task-input" placeholder="Tambah tugas...">
+      <input type="datetime-local" id="date-input">
+      <button id="add-task">Tambah</button>
+    </div>
+
+    <div class="progress-container">
+      <label>Progress:</label>
+      <div class="progress-bar" id="progress-bar">0%</div>
+    </div>
+
+    <h2>Daftar Tugas</h2>
+    <ul id="task-list"></ul>
+
+    <h2>Riwayat Tugas Selesai</h2>
+    <ul id="completed-tasks"></ul>
+  </div>
+
+  <!-- Suara -->
+  <audio id="sound-add" src="sounds/add.mp3" preload="auto"></audio>
+  <audio id="sound-complete" src="sounds/complete.mp3" preload="auto"></audio>
+  <audio id="sound-delete" src="sounds/delete.mp3" preload="auto"></audio>
+
+  <script src="do.js"></script>
+</body>
+</html>
